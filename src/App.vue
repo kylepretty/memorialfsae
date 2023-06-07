@@ -1,5 +1,5 @@
 <template>
-      <body class="bg-zinc-900 text-white">
+      <body class="bg-zinc-900 text-white sticky top-0">
         <nav class="py-6 px-6 flex justify-between items-center bg-zinc-900">
             <a href="/" class="text-xl font-semibold">FormulaMUN</a>
             <div class="space-x-6">
