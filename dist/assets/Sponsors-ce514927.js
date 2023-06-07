@@ -1,0 +1,1 @@
+import{_ as o}from"./_plugin-vue_export-helper-c27b6911.js";import{o as r,a as e}from"./index-7dd71d10.js";const s={};function n(c,t){return r(),e("h1",null,"Sponsorships")}const p=o(s,[["render",n]]);export{p as default};
