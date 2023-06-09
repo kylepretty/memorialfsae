@@ -1,17 +1,74 @@
 <template>
-      <body class="bg-zinc-900 text-white sticky top-0">
-        <nav class="py-6 px-6 flex justify-between items-center bg-zinc-900">
-            <router-link :to="{name: 'home'}" class="text-lg sm:text-xl font-semibold">FormulaMUN</router-link>
-            <div class="space-x-6">
-                <router-link :to="{name: 'car'}" class="text-md sm:text-lg hover:text-gray-500">Our Car</router-link>
-                <router-link :to="{name: 'team'}" class="text-md sm:text-lg hover:text-gray-500">Our Team</router-link>
-                <router-link :to="{name: 'sponsors'}" class="text-md sm:text-lg hover:text-gray-500">Sponsorships</router-link>
-            </div>
-        </nav>
-    </body>
+  <div class="bg-zinc-900">
+    <nav
+      class="
+        container
+        px-6
+        py-8
+        mx-auto
+        md:flex md:justify-between md:items-center
+      "
+    >
+      <div class="flex items-center justify-between">
+        <router-link
+          to="/"
+          class="
+            text-xl
+            font-semibold
+            text-gray-100
+            md:text-2xl
+            hover:text-gray-400
+          "
+          >FormulaMUN
+        </router-link>
+        <!-- Mobile menu button -->
+        <div @click="toggleNav" class="flex md:hidden">
+          <button
+            type="button"
+            class="
+              text-gray-100
+              hover:text-gray-400
+              focus:outline-none focus:text-gray-400
+            "
+          >
+            <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current">
+              <path
+                fill-rule="evenodd"
+                d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
+      <ul
+        :class="showMenu ? 'flex' : 'hidden'"
+        class="
+          flex-col
+          mt-8
+          space-y-4
+          text-gray-100
+          md:flex md:space-y-0 md:flex-row md:items-center md:space-x-10 md:mt-0
+        "
+      >
+        <router-link :to="{name: 'car'}" class="text-sm sm:text-lg hover:text-gray-400">Our Car</router-link>
+        <router-link :to="{name: 'team'}" class="text-sm sm:text-lg hover:text-gray-400">Our Team</router-link>
+        <router-link :to="{name: 'sponsors'}" class="text-sm sm:text-lg hover:text-gray-400">Sponsorships</router-link>
+      </ul>
+    </nav>
+  </div>
   <router-view />
 </template>
 
-<script setup>
+<script>
 import { RouterView } from 'vue-router'
+import { ref } from 'vue';
+export default {
+  setup() {
+    let showMenu = ref(false);
+    const toggleNav = () => (showMenu.value = !showMenu.value);
+    return { showMenu, toggleNav };
+  },
+};
 </script>
